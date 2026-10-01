@@ -1,973 +1,733 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Portafolio profesional de Sistemas - Desarrollo web y soluciones digitales de alta calidad">
-    <title>Sistemas | Portfolio de alto nivel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SISTEMAS BOTERO — Portafolio</title>
+<style>
+:root{--bg:#0b1220;--panel:#131c2e;--panel2:#1b2740;--line:#26324d;--ink:#e8eefc;
+--dim:#93a3c0;--acc:#22c55e;--acc2:#38bdf8;--warn:#f59e0b;--bad:#ef4444;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc2)}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 90px}
+header{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+.logo{font-weight:800;letter-spacing:3px;color:var(--acc)}
+h1{margin:.2em 0 .1em;font-size:clamp(26px,5vw,42px);line-height:1.05}
+.sub{color:var(--dim);max-width:70ch}
+.marca{color:var(--dim);font-size:13px;margin-top:6px}
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
+/* barra de veredicto */
+.barra{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);
+backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--r);
+padding:12px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.barra .n{font-weight:700;font-size:17px}
+.barra .ok{color:var(--acc)}.barra .no{color:var(--warn)}
+.barra button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+border-radius:9px;padding:8px 13px;cursor:pointer;font:inherit;font-weight:600}
+.barra button.pri{background:var(--acc);color:#06240f;border-color:transparent}
+.barra button:hover{border-color:var(--acc2)}
+.barra .der{color:var(--dim);font-size:13px}
 
-        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+section{margin:34px 0}
+h2{font-size:20px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+h2:before{content:"";width:5px;height:20px;background:var(--acc);border-radius:3px}
+.intro{color:var(--dim);margin:0 0 14px;max-width:80ch}
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .hero {
-            position: relative;
-            min-height: 90vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: #0b1120;
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
-            backdrop-filter: brightness(0.85);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 2rem;
-            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #FFFFFF, #b8e1fc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 1.25rem;
-        }
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            color: #e2e8f0;
-        }
-        .btn-primary {
-            background: #3b82f6;
-            color: white;
-            padding: 14px 36px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 60px;
-            transition: all 0.25s;
-            display: inline-block;
-            text-decoration: none;
-            box-shadow: 0 10px 20px -5px rgba(59,130,246,0.4);
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background: #2563eb;
-            transform: translateY(-3px);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 20px;
-            color: #0f172a;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 5px;
-        }
-
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 56px;
-        }
-        .filter-btn {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 10px 28px;
-            border-radius: 100px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .filter-btn.active {
-            background: #3b82f6;
-            border-color: #3b82f6;
-            color: white;
-        }
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            background: #eef2ff;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        .project-card {
-            background: #ffffff;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
-            transition: all 0.35s;
-            border: 1px solid #f0f2f5;
-        }
-        .project-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 45px -15px rgba(0,0,0,0.2);
-        }
-        .project-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            background: #e2e8f0;
-            transition: transform 0.5s ease;
-        }
-        .project-card:hover .project-img {
-            transform: scale(1.03);
-        }
-        .project-info {
-            padding: 28px;
-        }
-        .project-category {
-            display: inline-block;
-            background: #8b5cf6;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 5px 16px;
-            border-radius: 40px;
-            margin-bottom: 14px;
-        }
-        .project-title {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .project-price {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            font-weight: 700;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            margin: 14px 0;
-        }
-        .project-desc {
-            color: #334155;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            white-space: pre-line;
-        }
-        .project-links {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .project-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 8px 20px;
-            border-radius: 60px;
-            background: #eff6ff;
-            color: #1e40af;
-            transition: 0.2s;
-        }
-        .project-links a:hover {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .about-content {
-            max-width: 850px;
-            margin: 0 auto;
-            background: white;
-            padding: 48px;
-            border-radius: 48px;
-            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.05);
-            white-space: pre-line;
-            font-size: 1.1rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .contact-card {
-            background: white;
-            padding: 18px 38px;
-            border-radius: 80px;
-            text-decoration: none;
-            color: #0f172a;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-            transition: 0.25s;
-            border: 1px solid #e2e8f0;
-        }
-        .contact-card:hover {
-            transform: translateY(-6px);
-            background: #3b82f6;
-            color: white;
-        }
-
-        footer {
-            background: #0b1120;
-            color: #94a3b8;
-            text-align: center;
-            padding: 42px 0;
-        }
-
-        .admin-fab {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #1e293b;
-            color: white;
-            width: 68px;
-            height: 68px;
-            border-radius: 68px;
-            font-size: 30px;
-            cursor: pointer;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-        }
-        .admin-fab:hover {
-            background: #3b82f6;
-            transform: scale(1.05);
-        }
-
-        .admin-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(12px);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 30px;
-        }
-        .admin-card {
-            background: white;
-            max-width: 1280px;
-            margin: 30px auto;
-            border-radius: 48px;
-            padding: 40px;
-            position: relative;
-        }
-        .close-admin {
-            position: absolute;
-            top: 28px;
-            right: 32px;
-            font-size: 42px;
-            cursor: pointer;
-            color: #9ca3af;
-        }
-        .close-admin:hover { color: #ef4444; }
-        .admin-section {
-            margin-bottom: 48px;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 32px;
-        }
-        .admin-section h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 28px;
-        }
-        .project-editor {
-            background: #fefce8;
-            padding: 28px;
-            border-radius: 32px;
-            margin-bottom: 28px;
-            border: 1px solid #e2e8f0;
-        }
-        .project-editor label {
-            font-weight: 600;
-            display: block;
-            margin: 16px 0 6px;
-        }
-        .project-editor input, .project-editor textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 24px;
-            font-family: inherit;
-        }
-        .img-preview {
-            max-width: 140px;
-            max-height: 140px;
-            border-radius: 20px;
-            margin: 12px 0;
-            object-fit: cover;
-        }
-        .order-buttons {
-            display: flex;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .move-up, .move-down {
-            background: #475569;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 40px;
-            cursor: pointer;
-        }
-        .delete-proj, .delete-cont {
-            background: #ef4444;
-            color: white;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 40px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .add-project-btn, .addContactBtn {
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 60px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .reset-btn {
-            background: #f97316;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 60px;
-            font-weight: bold;
-            margin-left: 20px;
-        }
-        .save-all {
-            background: #3b82f6;
-            color: white;
-            font-weight: bold;
-            padding: 16px 36px;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-        .admin-info {
-            background: #eef2ff;
-            padding: 20px;
-            border-radius: 28px;
-            margin-bottom: 30px;
-        }
-        .toast-message {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: #1e293b;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-size: 0.9rem;
-            z-index: 3000;
-            animation: fadeUp 0.3s ease;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero .tagline { font-size: 1.1rem; }
-            .section-title { font-size: 2rem; }
-            .container { padding: 0 20px; }
-        }
-    </style>
+.grid{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.grid.chico{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+padding:15px;display:flex;flex-direction:column;gap:9px}
+.card.pendiente{border-color:var(--warn);box-shadow:0 0 0 1px rgba(245,158,11,.25)}
+.card.apro{border-color:var(--acc)}
+.top{display:flex;gap:11px;align-items:flex-start}
+.emo{font-size:26px;line-height:1}
+.tit{flex:1;min-width:0}
+h3{margin:0;font-size:16px;line-height:1.25}
+.estado{font-size:10.5px;font-weight:800;letter-spacing:.6px;margin-top:5px;
+display:inline-block;padding:2px 8px;border-radius:20px}
+.estado.verde{background:rgba(34,197,94,.15);color:var(--acc)}
+.estado.ambar{background:rgba(245,158,11,.15);color:var(--warn)}
+.estado.rojo{background:rgba(239,68,68,.15);color:#fca5a5}
+.que{margin:0;color:#c9d6ee;font-size:14px}
+.url{font-size:11.5px;color:var(--dim);word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
+.url.none{color:var(--warn)}
+.abrir{align-self:flex-start;background:var(--panel2);border:1px solid var(--line);
+border-radius:8px;padding:5px 13px;text-decoration:none;font-size:13px;font-weight:600;color:var(--ink)}
+.abrir:hover{border-color:var(--acc);color:var(--acc)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:6px;
+padding:2px 8px;font-size:11.5px;color:#b9c8e6}
+.aviso{margin:0;font-size:12.5px;color:#fcd34d;background:rgba(245,158,11,.09);
+border-left:3px solid var(--warn);padding:7px 10px;border-radius:0 7px 7px 0}
+.nota summary{cursor:pointer;font-size:12.5px;color:var(--dim);outline:none}
+.nota textarea{width:100%;margin-top:7px;background:var(--bg);color:var(--ink);
+border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit;font-size:13px;
+min-height:62px;resize:vertical}
+.voto{display:flex;gap:7px;align-items:center;margin-top:auto;padding-top:6px}
+.voto button{flex:1;background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+border-radius:9px;padding:8px;cursor:pointer;font:inherit;font-weight:700;font-size:13px}
+.voto button.ok:hover{border-color:var(--acc)}
+.voto button.no:hover{border-color:var(--warn)}
+.voto button.sel-ok{background:rgba(34,197,94,.2);border-color:var(--acc);color:#86efac}
+.voto button.sel-no{background:rgba(245,158,11,.2);border-color:var(--warn);color:#fcd34d}
+.fecha{font-size:11px;color:var(--dim);white-space:nowrap}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+footer b{color:var(--ink)}
+</style>
 </head>
 <body>
+<div class="wrap">
+<header>
+  <div class="logo">SISTEMAS BOTERO</div>
+  <h1>Portafolio de trabajo</h1>
+  <p class="sub">Todo lo que está hecho y vivo, agrupado por rubro y por canal.
+  Marcá cada cosa como <b>Aprobar</b> o <b>Mejorar</b>, escribí lo que falta en la nota,
+  y después tocá <b>Copiar veredicto</b> para mandarme la lista.</p>
+  <div class="marca">San Juan, Argentina · 1 de octubre de 2026 · todos los links verificados el mismo día</div>
+</header>
 
-<div class="hero" id="heroSection">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1 id="heroTitle">Sistemas</h1>
-        <p id="heroTagline" class="tagline">Desarrollo web | Soluciones integrales</p>
-        <a href="#proyectos" class="btn-primary">Explorar trabajos</a>
-    </div>
+<div class="barra">
+  <div class="n"><span class="ok" id="cApro">0</span> aprobados · <span class="no" id="cMej">0</span> para mejorar · <span id="cTot">29</span> en total</div>
+  <button class="pri" id="btnCopiar">Copiar veredicto</button>
+  <button id="btnLimpiar">Reiniciar</button>
+  <span class="der" id="aviso">Se guarda solo en este navegador</span>
 </div>
 
-<main>
-    <div class="container">
-        <section id="proyectos">
-            <h2 class="section-title">Proyectos destacados</h2>
-            <div id="filters-container" class="filters"></div>
-            <div id="projects-container" class="projects-grid"></div>
-        </section>
-        <section id="sobre">
-            <h2 class="section-title">Sobre nosotros</h2>
-            <div id="about-text" class="about-content"></div>
-        </section>
-        <section id="contacto">
-            <h2 class="section-title">Contacto</h2>
-            <div id="contact-links" class="contact-links"></div>
-            <p id="contact-footer-text" style="text-align: center; margin-top: 48px; color: #475569;"></p>
-        </section>
-    </div>
-</main>
+<section>
+  <h2>Puertas de entrada y proyectos propios</h2>
+  <p class="intro">La landing, la tienda online y el analizador. Son los tres que ya venden o atraen.</p>
+  <div class="grid"><article class="card" data-id="landing">
+  <div class="top">
+    <span class="emo">🎯</span>
+    <div class="tit"><h3>Sistemas Botero (landing)</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">La puerta de entrada: los 13 rubros, botón de WhatsApp y 3 planes.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistemas-botero/" target="_blank" rel="noopener">alex451-bip.github.io/sistemas-botero/</a><a class="abrir" href="https://alex451-bip.github.io/sistemas-botero/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">13 rubros</span><span class="chip">WhatsApp</span><span class="chip">$25K / $50K / $120K</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="landing"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="landing">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="landing">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="aimara">
+  <div class="top">
+    <span class="emo">🐔</span>
+    <div class="tit"><h3>Tienda AIMARA (kiosco avícola)</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Tienda online real con 71 productos, categorías, stock y carrito que arma el pedido de WhatsApp.</p>
+  <a class="url" href="https://alex451-bip.github.io/aimara/" target="_blank" rel="noopener">alex451-bip.github.io/aimara/</a><a class="abrir" href="https://alex451-bip.github.io/aimara/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">71 productos</span><span class="chip">carrito</span><span class="chip">pedido por WhatsApp</span><span class="chip">Firebase</span></div>
+  <p class="aviso"><b>Ojo:</b> Los precios son de referencia de mercado: hay que confirmarlos con la dueña antes de vender en serio.</p>
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="aimara"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="aimara">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="aimara">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="quini">
+  <div class="top">
+    <span class="emo">🎱</span>
+    <div class="tit"><h3>Quini 6 San Juan</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Analizador estadístico con 620 sorteos reales, backtest honesto y joked por día.</p>
+  <a class="url" href="https://alex451-bip.github.io/quini/" target="_blank" rel="noopener">alex451-bip.github.io/quini/</a><a class="abrir" href="https://alex451-bip.github.io/quini/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">620 sorteos</span><span class="chip">backtest walk-forward</span><span class="chip">confianza baja</span></div>
+  <p class="aviso"><b>Ojo:</b> Dice claramente que no hay ventaja estadística: es una herramienta de entretenimiento, no una promesa de premio.</p>
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="quini"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="quini">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="quini">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article></div>
+</section>
+<section>
+  <h2>Sistemas de gestión por rubro (13)</h2>
+  <p class="intro">Mismo código base, un módulo distinto por rubro. Todos con caja, stock y clientes; algunos con segunda pestaña propia.</p>
+  <div class="grid"><article class="card" data-id="sistema-kiosco">
+  <div class="top">
+    <span class="emo">🏪</span>
+    <div class="tit"><h3>Kiosco y almacén</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Caja, stock, fiado y lista de precios que el cliente ve en el celular.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-kiosco/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-kiosco/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-kiosco/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">caja</span><span class="chip">fiado</span><span class="chip">stock</span><span class="chip">lista de precios</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-kiosco"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-kiosco">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-kiosco">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-veterinaria">
+  <div class="top">
+    <span class="emo">🐾</span>
+    <div class="tit"><h3>Veterinaria</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Turnos, ventas, stock y ficha de mascota con aviso de próxima vacuna.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-veterinaria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-veterinaria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-veterinaria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">agenda de turnos</span><span class="chip">ficha de mascota</span><span class="chip">próxima vacuna</span><span class="chip">desparasitación</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-veterinaria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-veterinaria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-veterinaria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-corralon">
+  <div class="top">
+    <span class="emo">🧱</span>
+    <div class="tit"><h3>Corralón</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Pedidos y cotizaciones con total, stock y clientes de la obra.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-corralon/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-corralon/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-corralon/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">pedidos</span><span class="chip">cotizaciones</span><span class="chip">clientes</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-corralon"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-corralon">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-corralon">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-ferreteria">
+  <div class="top">
+    <span class="emo">🔧</span>
+    <div class="tit"><h3>Ferretería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Pedidos, herramientas, stock y venta de mostrador.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-ferreteria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-ferreteria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-ferreteria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">catálogo</span><span class="chip">stock</span><span class="chip">ventas</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-ferreteria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-ferreteria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-ferreteria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-panaderia">
+  <div class="top">
+    <span class="emo">🥐</span>
+    <div class="tit"><h3>Panadería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Vencimientos y producción del día con la merma ya calculada.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-panaderia/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-panaderia/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-panaderia/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">producción del día</span><span class="chip">merma calculada</span><span class="chip">venceMercadería</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-panaderia"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-panaderia">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-panaderia">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-carniceria">
+  <div class="top">
+    <span class="emo">🥩</span>
+    <div class="tit"><h3>Carnadería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Venta por peso, stock y clientes.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-carniceria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-carniceria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-carniceria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">precio por kg</span><span class="chip">stock</span><span class="chip">clientes</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-carniceria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-carniceria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-carniceria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-farmacia">
+  <div class="top">
+    <span class="emo">💊</span>
+    <div class="tit"><h3>Farmacia</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Vencimientos por lote, stock y ventas.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-farmacia/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-farmacia/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-farmacia/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">vencimiento por lote</span><span class="chip">stock</span><span class="chip">ventas</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-farmacia"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-farmacia">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-farmacia">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-barberia">
+  <div class="top">
+    <span class="emo">💈</span>
+    <div class="tit"><h3>Barbería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Agenda de turnos, servicios, precios y ficha del cliente.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-barberia/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-barberia/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-barberia/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">agenda de turnos</span><span class="chip">servicios</span><span class="chip">ficha del cliente</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-barberia"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-barberia">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-barberia">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-heladeria">
+  <div class="top">
+    <span class="emo">🍦</span>
+    <div class="tit"><h3>Heladería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Vencimientos y sabores del día con stock y pedido de reposición.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-heladeria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-heladeria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-heladeria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">sabores del día</span><span class="chip">aviso de reposición</span><span class="chip">stock de vasados</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-heladeria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-heladeria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-heladeria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-libreria">
+  <div class="top">
+    <span class="emo">📚</span>
+    <div class="tit"><h3>Librería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Encargos, títulos, stock y ventas.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-libreria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-libreria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-libreria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">encargos</span><span class="chip">títulos</span><span class="chip">stock</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-libreria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-libreria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-libreria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-verduleria">
+  <div class="top">
+    <span class="emo">🥬</span>
+    <div class="tit"><h3>Verdulería</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Precio por kilo del día, stock y pedidos.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-verduleria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-verduleria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-verduleria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">precio por kilo</span><span class="chip">stock</span><span class="chip">pedidos</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-verduleria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-verduleria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-verduleria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-indumentaria">
+  <div class="top">
+    <span class="emo">👕</span>
+    <div class="tit"><h3>Indumentaria</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Matriz de talle y color con stock real por variante, más pedidos con total.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-indumentaria/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-indumentaria/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-indumentaria/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">matriz talle × color</span><span class="chip">stock por variante</span><span class="chip">pedidos con total</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-indumentaria"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-indumentaria">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-indumentaria">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="sistema-estetica">
+  <div class="top">
+    <span class="emo">✨</span>
+    <div class="tit"><h3>Estética</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Agenda de turnos, catálogo de servicios, insumos y ventas.</p>
+  <a class="url" href="https://alex451-bip.github.io/sistema-estetica/" target="_blank" rel="noopener">alex451-bip.github.io/sistema-estetica/</a><a class="abrir" href="https://alex451-bip.github.io/sistema-estetica/" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">agenda de turnos</span><span class="chip">12 servicios</span><span class="chip">insumos</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="sistema-estetica"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="sistema-estetica">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="sistema-estetica">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article></div>
+</section>
+<section>
+  <h2>Marcas y contenido publicado</h2>
+  <p class="intro">Dónde hay presencia real hoy. Esto es lo que falta: los links, no los sistemas.</p>
+  <div class="grid"><article class="card" data-id="fb-page">
+  <div class="top">
+    <span class="emo">📘</span>
+    <div class="tit"><h3>Página de Facebook — Sistemas Botero</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Perfil de marca con logo, portada, WhatsApp conectado y los reels de venta.</p>
+  <a class="url" href="https://www.facebook.com/profile.php?id=61595010057577" target="_blank" rel="noopener">www.facebook.com/profile.php?id=61595010057577</a><a class="abrir" href="https://www.facebook.com/profile.php?id=61595010057577" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">WhatsApp conectado</span><span class="chip">3 reels</span><span class="chip">sitio web enlazado</span></div>
+  <p class="aviso"><b>Ojo:</b> 0 seguidores. El alcance llega sin seguidores, pero no hay comunidad todavía.</p>
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="fb-page"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="fb-page">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="fb-page">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="reel-2915243772193598">
+  <div class="top">
+    <span class="emo">🎬</span>
+    <div class="tit"><h3>Reel A — el cuaderno que te roba plata</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Reel de venta vertical, 0:40.</p>
+  <a class="url" href="https://www.facebook.com/reel/2915243772193598" target="_blank" rel="noopener">www.facebook.com/reel/2915243772193598</a><a class="abrir" href="https://www.facebook.com/reel/2915243772193598" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">0:40</span><span class="chip">258 reproducciones</span><span class="chip">sin precio (orgánico)</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="reel-2915243772193598"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="reel-2915243772193598">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="reel-2915243772193598">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="reel-1133324326018747">
+  <div class="top">
+    <span class="emo">🎬</span>
+    <div class="tit"><h3>Reel B — no es una app linda, es que no se pierda una venta</h3><div class="estado verde">LIVE</div></div>
+  </div>
+  <p class="que">Reel de venta vertical, 0:44.</p>
+  <a class="url" href="https://www.facebook.com/reel/1133324326018747" target="_blank" rel="noopener">www.facebook.com/reel/1133324326018747</a><a class="abrir" href="https://www.facebook.com/reel/1133324326018747" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">0:44</span><span class="chip">163 reproducciones</span><span class="chip">sin precio (orgánico)</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="reel-1133324326018747"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="reel-1133324326018747">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="reel-1133324326018747">Mejorar</button>
+    <span class="fecha">verificado hoy</span>
+  </div>
+</article>
+<article class="card" data-id="yt-pipilandia">
+  <div class="top">
+    <span class="emo">🧸</span>
+    <div class="tit"><h3>Pipilandia (YouTube)</h3><div class="estado ambar">VIVO CON DATOS</div></div>
+  </div>
+  <p class="que">Canal de canciones infantiles. 8 videos públicos, 948 vistas, 0 suscriptores.</p>
+  <a class="url" href="https://www.youtube.com/channel/UCk8nBcx6uacoXSjP1c54vOg" target="_blank" rel="noopener">www.youtube.com/channel/UCk8nBcx6uacoXSjP1c54vOg</a><a class="abrir" href="https://www.youtube.com/channel/UCk8nBcx6uacoXSjP1c54vOg" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">8 videos</span><span class="chip">948 vistas</span><span class="chip">0 suscriptores</span></div>
+  <p class="aviso"><b>Ojo:</b> 948 vistas y 0 clientes. Es el cuello de botella: hay que abrir canales y medir conversión.</p>
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-pipilandia"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-pipilandia">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-pipilandia">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article></div>
+</section>
+<section>
+  <h2>Videos públicos de Pipilandia (8)</h2>
+  <p class="intro">Medidos hoy con la API pública. Los números son los que son.</p>
+  <div class="grid chico"><article class="card chico" data-id="yt-8rCbVJrNLmY">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>GOJO vs SUKUNA — Rap de Batalla</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">372 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/8rCbVJrNLmY" target="_blank" rel="noopener">www.youtube.com/shorts/8rCbVJrNLmY</a><a class="abrir" href="https://www.youtube.com/shorts/8rCbVJrNLmY" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">372 vistas</span><span class="chip">no es del nicho kids</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-8rCbVJrNLmY"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-8rCbVJrNLmY">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-8rCbVJrNLmY">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-tQtTMC9oUg8">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>El Gato 🐱</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">174 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/tQtTMC9oUg8" target="_blank" rel="noopener">www.youtube.com/shorts/tQtTMC9oUg8</a><a class="abrir" href="https://www.youtube.com/shorts/tQtTMC9oUg8" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">174 vistas</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-tQtTMC9oUg8"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-tQtTMC9oUg8">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-tQtTMC9oUg8">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt--zxWyuc8xDE">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>El Cerdito 🐷</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">147 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/-zxWyuc8xDE" target="_blank" rel="noopener">www.youtube.com/shorts/-zxWyuc8xDE</a><a class="abrir" href="https://www.youtube.com/shorts/-zxWyuc8xDE" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">147 vistas</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt--zxWyuc8xDE"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt--zxWyuc8xDE">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt--zxWyuc8xDE">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-nDidhyL-k5I">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>Tito canta 🐦</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">100 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/nDidhyL-k5I" target="_blank" rel="noopener">www.youtube.com/shorts/nDidhyL-k5I</a><a class="abrir" href="https://www.youtube.com/shorts/nDidhyL-k5I" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">100 vistas</span><span class="chip">animado con Veo 3.1</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-nDidhyL-k5I"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-nDidhyL-k5I">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-nDidhyL-k5I">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-to7CwOyXO2o">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>GTA 6 confirma fecha</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">92 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/to7CwOyXO2o" target="_blank" rel="noopener">www.youtube.com/shorts/to7CwOyXO2o</a><a class="abrir" href="https://www.youtube.com/shorts/to7CwOyXO2o" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">92 vistas</span><span class="chip">no es del nicho kids</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-to7CwOyXO2o"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-to7CwOyXO2o">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-to7CwOyXO2o">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-DWwpD4AwaSY">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>Pipo baila 🐻</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">50 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/DWwpD4AwaSY" target="_blank" rel="noopener">www.youtube.com/shorts/DWwpD4AwaSY</a><a class="abrir" href="https://www.youtube.com/shorts/DWwpD4AwaSY" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">50 vistas</span><span class="chip">animado con Veo 3.1</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-DWwpD4AwaSY"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-DWwpD4AwaSY">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-DWwpD4AwaSY">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-WCOSgZlr04c">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>Lula baila 🐰</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">20 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/WCOSgZlr04c" target="_blank" rel="noopener">www.youtube.com/shorts/WCOSgZlr04c</a><a class="abrir" href="https://www.youtube.com/shorts/WCOSgZlr04c" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">20 vistas</span><span class="chip">animado con Veo 3.1</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-WCOSgZlr04c"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-WCOSgZlr04c">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-WCOSgZlr04c">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article>
+<article class="card chico" data-id="yt-urSK9D1uenI">
+  <div class="top">
+    <span class="emo">▶</span>
+    <div class="tit"><h3>La Estrellita ⭐</h3><div class="estado ambar">VIVO</div></div>
+  </div>
+  <p class="que">3 vistas.</p>
+  <a class="url" href="https://www.youtube.com/shorts/urSK9D1uenI" target="_blank" rel="noopener">www.youtube.com/shorts/urSK9D1uenI</a><a class="abrir" href="https://www.youtube.com/shorts/urSK9D1uenI" target="_blank" rel="noopener">Abrir</a>
+  <div class="chips"><span class="chip">3 vistas</span></div>
+  
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="yt-urSK9D1uenI"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="yt-urSK9D1uenI">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="yt-urSK9D1uenI">Mejorar</button>
+    <span class="fecha">medido hoy</span>
+  </div>
+</article></div>
+</section>
+<section>
+  <h2>No publicado a propósito</h2>
+  <p class="intro">Existe y funciona, pero no está en internet por decisión propia.</p>
+  <div class="grid"><article class="card" data-id="prospectos">
+  <div class="top">
+    <span class="emo">📋</span>
+    <div class="tit"><h3>Prospección de 65 negocios reales de San Juan</h3><div class="estado rojo">LOCAL, NO PUBLICADO A PROPÓSITO</div></div>
+  </div>
+  <p class="que">65 negocios en 9 rubros, 22 con teléfono, con mensaje ya escrito por rubro.</p>
+  <span class="url none">sin link público</span>
+  <div class="chips"><span class="chip">65 negocios</span><span class="chip">22 con teléfono</span><span class="chip">9 rubros</span></div>
+  <p class="aviso"><b>Ojo:</b> Es un activo comercial con teléfonos. No lo subo a internet porque se lo regalo a la competencia.</p>
+  <details class="nota"><summary>Nota de revisión</summary>
+    <textarea placeholder="Qué te gustó, qué hay que mejorar, qué falta…" data-nota="prospectos"></textarea>
+  </details>
+  <div class="voto">
+    <button class="ok"  data-voto="aprobar"  data-id="prospectos">Aprobar</button>
+    <button class="no"  data-voto="mejorar"  data-id="prospectos">Mejorar</button>
+    <span class="fecha">en tu PC</span>
+  </div>
+</article></div>
+</section>
 
 <footer>
-    <div class="container">
-        <p id="footer-text">© 2026 Sistemas – Portafolio profesional</p>
-    </div>
+  <p><b>Lo que no está:</b> no hay servidor, no hay base de datos y no hay nube.
+  Los sistemas guardan en el navegador del cliente (<code>localStorage</code>):
+  si el dueño cambia de celular o de computadora, no ve lo que tenía.
+  Eso es lo primero que hay que resolver antes de cobrar de más.</p>
+  <p><b>Lo que sí hay:</b> 13 rubros funcionando, una tienda online real con 71 productos,
+  una marca en Facebook con 3 reels, un canal de YouTube con 8 videos,
+  y una base de 65 negocios de San Juan para prospectear.</p>
+  <p>Generado por YARVIS · los resultados varían</p>
 </footer>
-
-<button class="admin-fab" id="adminBtn">⚙️</button>
-<div id="adminModal" class="admin-modal">
-    <div class="admin-card">
-        <span class="close-admin" id="closeModal">&times;</span>
-        <h2 style="font-size: 2.3rem; margin-bottom: 20px;">Panel de Administración</h2>
-        <div class="admin-info">
-            🔧 Control total: imagen de fondo, textos, proyectos.<br>
-            🖼️ ¡Sube imágenes de cualquier tamaño! Usamos IndexedDB sin límites.<br>
-            🔄 Reordena proyectos, edita todo libremente.<br>
-            🔒 Acceso protegido con contraseña: <strong>4321</strong>
-        </div>
-        <div class="admin-section">
-            <h3>🎨 Imagen de fondo (Hero)</h3>
-            <input type="file" id="heroImageUpload" accept="image/*">
-            <div id="heroPreview" style="margin-top: 16px;"></div>
-        </div>
-        <div class="admin-section">
-            <h3>📝 Textos globales</h3>
-            <label>Título hero:</label>
-            <input type="text" id="admin-heroTitle">
-            <label>Subtítulo hero:</label>
-            <input type="text" id="admin-heroTagline">
-            <label>Sobre nosotros:</label>
-            <textarea id="admin-about" rows="5"></textarea>
-            <label>Pie de página:</label>
-            <input type="text" id="admin-footer">
-            <label>Texto bajo contactos:</label>
-            <input type="text" id="admin-contact-footer">
-        </div>
-        <div class="admin-section">
-            <h3>📞 Contacto</h3>
-            <div id="contact-editor"></div>
-            <button id="addContactBtn" class="add-project-btn">+ Agregar contacto</button>
-        </div>
-        <div class="admin-section">
-            <h3>📁 Proyectos</h3>
-            <div id="projects-editor"></div>
-            <button id="addProjectBtn" class="add-project-btn">+ Agregar proyecto</button>
-        </div>
-        <div style="display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap;">
-            <button id="saveAllBtn" class="save-all">💾 Guardar todos los cambios</button>
-            <button id="resetDataBtn" class="reset-btn">⚠️ Resetear datos de fábrica</button>
-        </div>
-    </div>
 </div>
 
 <script>
-    // ---------- CONTRASEÑA ADMIN ----------
-    const ADMIN_PASSWORD = "4321";
+var K_VOTO="sb_portafolio_voto", K_NOTA="sb_portafolio_nota";
+function cargar(k,def){try{return JSON.parse(localStorage.getItem(k))||def;}catch(e){return def;}}
+function guardar(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 
-    // ---------- IndexedDB para imágenes pesadas ----------
-    const DB_NAME = "PortfolioDB";
-    const DB_VERSION = 1;
-    const STORE_NAME = "images";
+var votos=cargar(K_VOTO,{}), notas=cargar(K_NOTA,{});
+var TOTAL=29;
 
-    let db = null;
-
-    function openDB() {
-        return new Promise((resolve, reject) => {
-            const request = indexedDB.open(DB_NAME, DB_VERSION);
-            request.onerror = () => reject(request.error);
-            request.onsuccess = () => {
-                db = request.result;
-                resolve(db);
-            };
-            request.onupgradeneeded = (e) => {
-                const db = e.target.result;
-                if (!db.objectStoreNames.contains(STORE_NAME)) {
-                    db.createObjectStore(STORE_NAME);
-                }
-            };
-        });
-    }
-
-    async function storeImage(key, base64Data) {
-        await openDB();
-        return new Promise((resolve, reject) => {
-            const tx = db.transaction(STORE_NAME, "readwrite");
-            const store = tx.objectStore(STORE_NAME);
-            const request = store.put(base64Data, key);
-            request.onsuccess = () => resolve();
-            request.onerror = () => reject(request.error);
-        });
-    }
-
-    async function getImage(key) {
-        await openDB();
-        return new Promise((resolve, reject) => {
-            const tx = db.transaction(STORE_NAME, "readonly");
-            const store = tx.objectStore(STORE_NAME);
-            const request = store.get(key);
-            request.onsuccess = () => resolve(request.result || null);
-            request.onerror = () => reject(request.error);
-        });
-    }
-
-    async function deleteImage(key) {
-        await openDB();
-        return new Promise((resolve, reject) => {
-            const tx = db.transaction(STORE_NAME, "readwrite");
-            const store = tx.objectStore(STORE_NAME);
-            const request = store.delete(key);
-            request.onsuccess = () => resolve();
-            request.onerror = () => reject(request.error);
-        });
-    }
-
-    async function clearAllImages() {
-        await openDB();
-        return new Promise((resolve, reject) => {
-            const tx = db.transaction(STORE_NAME, "readwrite");
-            const store = tx.objectStore(STORE_NAME);
-            const request = store.clear();
-            request.onsuccess = () => resolve();
-            request.onerror = () => reject(request.error);
-        });
-    }
-
-    // ---------- Datos por defecto con imágenes SVG atractivas ----------
-    function createSvgPlaceholder(icon, label, bgColor) {
-        return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='${encodeURIComponent(bgColor)}'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='70'%3E${encodeURIComponent(icon)}%3C/text%3E%3Ctext x='50%25' y='70%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-weight='bold' font-family='Inter, sans-serif'%3E${encodeURIComponent(label)}%3C/text%3E%3C/svg%3E`;
-    }
-
-    const DEFAULT_META = {
-        heroTitle: "Sistemas",
-        heroTagline: "Desarrollo web | Soluciones integrales",
-        heroImageKey: "", 
-        about: "Somos un equipo apasionado por la tecnología.\nCreamos e‑commerce, sistemas de gestión, sitios profesionales y soluciones a medida.\n\nCalidad, rendimiento y diseño pensado para resultados.",
-        footer: "© 2026 Sistemas – Portafolio profesional",
-        contactFooter: "¿Hablamos de tu próximo proyecto? Escríbenos.",
-        contacts: [
-            { label: "📧 Email", url: "mailto:alexvilchez683@gmail.com" },
-            { label: "📱 WhatsApp", url: "https://wa.me/5492645252045" }
-        ],
-        projects: [
-            { id: "p1", title: "Willi Marin Peluquería", category: "Peluquería", desc: "Sitio profesional con gestión de turnos, contabilidad, inventario y panel administrativo.\nSistema completo con reportes.", price: "Consultar", imageKey: "proj_p1", links: [{ text: "Ver demo", url: "https://willi-marin.netlify.app/" }] },
-            { id: "p2", title: "E‑commerce MY MUNAY", category: "E-commerce", desc: "Tienda online con panel de administración, gestión de productos y pedidos.\nIdeal para emprendedores.", price: "$450 USD", imageKey: "proj_p2", links: [{ text: "Demo 1", url: "https://alex451-bip.github.io/tienda/" }, { text: "Demo 2", url: "https://alex451-bip.github.io/TIENDA-2/" }] },
-            { id: "p3", title: "Tienda 3", category: "E-commerce", desc: "E‑commerce funcional, responsive, con carrito y pasarela simulada.", price: "$380 USD", imageKey: "proj_p3", links: [{ text: "Ver demo", url: "https://alex451-bip.github.io/tienda3/" }] },
-            { id: "p4", title: "Flor Cresto by Nubia", category: "Estilista", desc: "Sitio para estilista profesional: servicios, ubicación, contacto y galería.", price: "$250 USD", imageKey: "proj_p4", links: [{ text: "Demo v1", url: "https://alex451-bip.github.io/estilista-/" }, { text: "Demo v2", url: "https://alex451-bip.github.io/estilis/" }] }
-        ]
-    };
-
-    // Cargar metadatos desde localStorage
-    let metaData = JSON.parse(localStorage.getItem("portfolio_meta"));
-    if (!metaData) {
-        metaData = JSON.parse(JSON.stringify(DEFAULT_META));
-        localStorage.setItem("portfolio_meta", JSON.stringify(metaData));
-    }
-
-    // Inicializar imágenes por defecto en IndexedDB (solo si no existen)
-    async function initDefaultImages() {
-        await openDB();
-        const defaultSVGs = {
-            "proj_p1": createSvgPlaceholder("✂️", "Peluquería & Barbería", "#6b21a5"),
-            "proj_p2": createSvgPlaceholder("🛒", "E‑commerce Profesional", "#0f3b5c"),
-            "proj_p3": createSvgPlaceholder("🛍️", "Marketplace Digital", "#2563eb"),
-            "proj_p4": createSvgPlaceholder("💇‍♀️", "Estilista & Belleza", "#c2410c")
-        };
-        for (const [key, svg] of Object.entries(defaultSVGs)) {
-            const existing = await getImage(key);
-            if (!existing) {
-                await storeImage(key, svg);
-            }
-        }
-    }
-
-    async function getProjectImageUrl(project) {
-        if (project.imageKey) {
-            const imgBase64 = await getImage(project.imageKey);
-            if (imgBase64) return imgBase64;
-        }
-        return null;
-    }
-
-    // Render público con imágenes async
-    let currentCategory = "TODOS";
-
-    async function renderPublic() {
-        document.getElementById("heroTitle").innerText = metaData.heroTitle;
-        document.getElementById("heroTagline").innerText = metaData.heroTagline;
-        document.getElementById("about-text").innerText = metaData.about;
-        document.getElementById("footer-text").innerHTML = metaData.footer;
-        document.getElementById("contact-footer-text").innerHTML = metaData.contactFooter;
-
-        const contactDiv = document.getElementById("contact-links");
-        contactDiv.innerHTML = "";
-        metaData.contacts.forEach(c => {
-            const a = document.createElement("a");
-            a.href = c.url;
-            a.className = "contact-card";
-            a.target = "_blank";
-            a.innerHTML = c.label;
-            contactDiv.appendChild(a);
-        });
-
-        const catsSet = new Set(metaData.projects.map(p => p.category).filter(c => c && c.trim() !== ""));
-        const categories = ["TODOS", ...Array.from(catsSet)];
-        const filtersDiv = document.getElementById("filters-container");
-        filtersDiv.innerHTML = "";
-        categories.forEach(cat => {
-            const btn = document.createElement("button");
-            btn.innerText = cat;
-            btn.className = `filter-btn ${currentCategory === cat ? "active" : ""}`;
-            btn.onclick = () => {
-                currentCategory = cat;
-                renderPublic();
-            };
-            filtersDiv.appendChild(btn);
-        });
-
-        let filtered = metaData.projects;
-        if (currentCategory !== "TODOS") filtered = metaData.projects.filter(p => p.category === currentCategory);
-
-        const grid = document.getElementById("projects-container");
-        grid.innerHTML = "";
-        for (const proj of filtered) {
-            const card = document.createElement("div");
-            card.className = "project-card";
-            const imgUrl = await getProjectImageUrl(proj);
-            const imgHtml = imgUrl ? `<img class="project-img" src="${imgUrl}" alt="${escapeHtml(proj.title)}" loading="lazy">` : `<div class="project-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:white;font-size:3rem;">🖼️</div>`;
-            card.innerHTML = `
-                ${imgHtml}
-                <div class="project-info">
-                    <div class="project-category">${escapeHtml(proj.category)}</div>
-                    <h3 class="project-title">${escapeHtml(proj.title)}</h3>
-                    <div class="project-price">💰 ${escapeHtml(proj.price)}</div>
-                    <p class="project-desc">${escapeHtml(proj.desc).replace(/\n/g, '<br>')}</p>
-                    <div class="project-links">
-                        ${proj.links.map(l => `<a href="${escapeHtml(l.url)}" target="_blank">${escapeHtml(l.text)}</a>`).join('')}
-                    </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        }
-    }
-
-    // Render admin (solo se llama tras validar contraseña)
-    async function renderAdmin() {
-        const previewDiv = document.getElementById("heroPreview");
-        const heroImg = await getImage("hero_background");
-        if (heroImg) {
-            previewDiv.innerHTML = `<img src="${heroImg}" style="max-width:100%; max-height:180px; border-radius:24px;">`;
-        } else {
-            previewDiv.innerHTML = "<small>Sin imagen personalizada (se usa Unsplash por defecto)</small>";
-        }
-
-        document.getElementById("admin-heroTitle").value = metaData.heroTitle;
-        document.getElementById("admin-heroTagline").value = metaData.heroTagline;
-        document.getElementById("admin-about").value = metaData.about;
-        document.getElementById("admin-footer").value = metaData.footer;
-        document.getElementById("admin-contact-footer").value = metaData.contactFooter;
-
-        const projEditor = document.getElementById("projects-editor");
-        projEditor.innerHTML = "";
-        for (let idx = 0; idx < metaData.projects.length; idx++) {
-            const proj = metaData.projects[idx];
-            const imgUrl = await getProjectImageUrl(proj);
-            const div = document.createElement("div");
-            div.className = "project-editor";
-            div.innerHTML = `
-                <strong style="font-size:1.3rem;">📌 ${escapeHtml(proj.title)}</strong>
-                <div class="order-buttons">
-                    <button class="move-up" data-idx="${idx}" ${idx===0?'disabled':''}>⬆️ Subir</button>
-                    <button class="move-down" data-idx="${idx}" ${idx===metaData.projects.length-1?'disabled':''}>⬇️ Bajar</button>
-                </div>
-                <label>🖼️ Imagen (cualquier tamaño, JPG/PNG/WebP):</label>
-                <input type="file" accept="image/*" class="img-uploader" data-idx="${idx}">
-                <div class="img-preview-container"></div>
-                <label>Título:</label>
-                <input type="text" id="proj_title_${idx}" value="${escapeHtml(proj.title)}">
-                <label>Categoría:</label>
-                <input type="text" id="proj_category_${idx}" value="${escapeHtml(proj.category)}">
-                <label>Precio:</label>
-                <input type="text" id="proj_price_${idx}" value="${escapeHtml(proj.price)}">
-                <label>Descripción:</label>
-                <textarea id="proj_desc_${idx}" rows="4">${escapeHtml(proj.desc)}</textarea>
-                <label>Enlaces (texto|url, separados por coma):</label>
-                <input type="text" id="proj_links_${idx}" value="${proj.links.map(l=>l.text+"|"+l.url).join(', ')}">
-                <button class="delete-proj" data-idx="${idx}">🗑️ Eliminar</button>
-            `;
-            projEditor.appendChild(div);
-            const previewCont = div.querySelector(".img-preview-container");
-            if (imgUrl) {
-                const img = document.createElement("img");
-                img.src = imgUrl;
-                img.className = "img-preview";
-                previewCont.appendChild(img);
-            } else {
-                previewCont.innerHTML = "<small>Sin imagen</small>";
-            }
-
-            const uploader = div.querySelector(".img-uploader");
-            uploader.addEventListener("change", async (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = async (ev) => {
-                        const base64 = ev.target.result;
-                        const key = `proj_${proj.id}`;
-                        proj.imageKey = key;
-                        await storeImage(key, base64);
-                        showMessage(`✅ Imagen de "${proj.title}" guardada (${(file.size/1024/1024).toFixed(1)} MB)`);
-                        await renderAdmin();
-                        await renderPublic();
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-
-        // Eventos dinámicos (mover, eliminar)
-        document.querySelectorAll(".move-up").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const i = parseInt(btn.dataset.idx);
-                if (i > 0) { [metaData.projects[i-1], metaData.projects[i]] = [metaData.projects[i], metaData.projects[i-1]]; saveMetaAndRefresh(); }
-            });
-        });
-        document.querySelectorAll(".move-down").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const i = parseInt(btn.dataset.idx);
-                if (i < metaData.projects.length-1) { [metaData.projects[i+1], metaData.projects[i]] = [metaData.projects[i], metaData.projects[i+1]]; saveMetaAndRefresh(); }
-            });
-        });
-        document.querySelectorAll(".delete-proj").forEach(btn => {
-            btn.addEventListener("click", async () => {
-                const i = parseInt(btn.dataset.idx);
-                if (confirm("¿Eliminar proyecto?")) {
-                    const proj = metaData.projects[i];
-                    if (proj.imageKey) await deleteImage(proj.imageKey);
-                    metaData.projects.splice(i,1);
-                    await saveMetaAndRefresh();
-                }
-            });
-        });
-
-        const contactEditor = document.getElementById("contact-editor");
-        contactEditor.innerHTML = "";
-        metaData.contacts.forEach((c, idx) => {
-            const div = document.createElement("div");
-            div.className = "project-editor";
-            div.innerHTML = `
-                <label>Texto:</label>
-                <input type="text" id="cont_label_${idx}" value="${escapeHtml(c.label)}">
-                <label>URL:</label>
-                <input type="text" id="cont_url_${idx}" value="${escapeHtml(c.url)}">
-                <button class="delete-cont" data-idx="${idx}">❌ Eliminar</button>
-            `;
-            contactEditor.appendChild(div);
-        });
-        document.querySelectorAll(".delete-cont").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const i = parseInt(btn.dataset.idx);
-                if (confirm("Eliminar contacto?")) { metaData.contacts.splice(i,1); saveMetaAndRefresh(); }
-            });
-        });
-    }
-
-    async function saveMetaAndRefresh() {
-        localStorage.setItem("portfolio_meta", JSON.stringify(metaData));
-        await renderAdmin();
-        await renderPublic();
-        updateHeroBg();
-        showMessage("✅ Cambios guardados (imágenes pesadas en IndexedDB)");
-    }
-
-    async function updateHeroBg() {
-        const hero = document.getElementById("heroSection");
-        const heroImg = await getImage("hero_background");
-        if (heroImg) {
-            hero.style.backgroundImage = `url(${heroImg})`;
-        } else {
-            hero.style.backgroundImage = `url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format')`;
-        }
-    }
-
-    function collectFromAdmin() {
-        metaData.heroTitle = document.getElementById("admin-heroTitle").value;
-        metaData.heroTagline = document.getElementById("admin-heroTagline").value;
-        metaData.about = document.getElementById("admin-about").value;
-        metaData.footer = document.getElementById("admin-footer").value;
-        metaData.contactFooter = document.getElementById("admin-contact-footer").value;
-
-        for (let i=0; i<metaData.projects.length; i++) {
-            const t = document.getElementById(`proj_title_${i}`);
-            const cat = document.getElementById(`proj_category_${i}`);
-            const pr = document.getElementById(`proj_price_${i}`);
-            const d = document.getElementById(`proj_desc_${i}`);
-            const l = document.getElementById(`proj_links_${i}`);
-            if (t) metaData.projects[i].title = t.value;
-            if (cat) metaData.projects[i].category = cat.value;
-            if (pr) metaData.projects[i].price = pr.value;
-            if (d) metaData.projects[i].desc = d.value;
-            if (l) {
-                const raw = l.value;
-                const linksArr = raw.split(',').map(part => {
-                    const [text, url] = part.trim().split('|');
-                    return (text && url) ? { text: text.trim(), url: url.trim() } : null;
-                }).filter(Boolean);
-                if (linksArr.length) metaData.projects[i].links = linksArr;
-                else metaData.projects[i].links = [{ text: "Ver proyecto", url: "#" }];
-            }
-        }
-
-        const newContacts = [];
-        for (let i=0; i<metaData.contacts.length; i++) {
-            const lab = document.getElementById(`cont_label_${i}`);
-            const urlEl = document.getElementById(`cont_url_${i}`);
-            if (lab && urlEl && lab.value.trim() && urlEl.value.trim()) newContacts.push({ label: lab.value, url: urlEl.value });
-        }
-        if (newContacts.length) metaData.contacts = newContacts;
-    }
-
-    function showMessage(msg, isError = false) {
-        const toast = document.createElement("div");
-        toast.className = "toast-message";
-        toast.style.background = isError ? "#ef4444" : "#1e293b";
-        toast.innerText = msg;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-    }
-
-    // Eventos UI con protección de contraseña
-    document.getElementById("heroImageUpload").addEventListener("change", async (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = async (ev) => {
-                await storeImage("hero_background", ev.target.result);
-                await updateHeroBg();
-                await renderAdmin();
-                showMessage(`✅ Imagen de fondo guardada (${(file.size/1024/1024).toFixed(1)} MB)`);
-            };
-            reader.readAsDataURL(file);
-        }
+function pintar(){
+  document.querySelectorAll(".card").forEach(function(c){
+    var id=c.dataset.id, v=votos[id];
+    c.classList.toggle("apro",v==="aprobar");
+    c.classList.toggle("pendiente",v==="mejorar");
+    c.querySelectorAll(".voto button").forEach(function(b){
+      b.classList.remove("sel-ok","sel-no");
+      if(b.dataset.voto===v) b.classList.add(v==="aprobar"?"sel-ok":"sel-no");
     });
+  });
+  var a=0,m=0;
+  for(var k in votos){ if(votos[k]==="aprobar")a++; else if(votos[k]==="mejorar")m++; }
+  document.getElementById("cApro").textContent=a;
+  document.getElementById("cMej").textContent=m;
+  var card=document.querySelector(".card");
+  var lista=[];
+  document.querySelectorAll(".card").forEach(function(c){
+    var id=c.dataset.id, t=(c.querySelector("h3")||{}).textContent||id;
+    if(votos[id]||notas[id]) lista.push({id:id,titulo:t,voto:votos[id]||"sin marcar",nota:notas[id]||""});
+  });
+  guardar("sb_portafolio_resumen",lista);
+}
 
-    document.getElementById("addProjectBtn").addEventListener("click", () => {
-        const newId = Date.now().toString();
-        metaData.projects.push({
-            id: newId,
-            title: "Nuevo proyecto",
-            category: "General",
-            desc: "Descripción del proyecto...",
-            price: "Precio",
-            imageKey: `proj_${newId}`,
-            links: [{ text: "Demo", url: "#" }]
-        });
-        saveMetaAndRefresh();
-    });
+function sincronizar(){
+  document.querySelectorAll("textarea[data-nota]").forEach(function(t){notas[t.dataset.nota]=t.value;});
+  guardar(K_NOTA,notas); guardar(K_VOTO,votos);
+  document.getElementById("aviso").textContent="guardado " + new Date().toLocaleTimeString("es-AR");
+}
 
-    document.getElementById("addContactBtn").addEventListener("click", () => {
-        metaData.contacts.push({ label: "Nuevo contacto", url: "#" });
-        saveMetaAndRefresh();
-    });
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button[data-voto]");
+  if(!b) return;
+  var id=b.dataset.id;
+  votos[id] = (votos[id]===b.dataset.voto) ? undefined : b.dataset.voto;
+  if(votos[id]===undefined) delete votos[id];
+  sincronizar(); pintar();
+});
 
-    document.getElementById("saveAllBtn").addEventListener("click", async () => {
-        collectFromAdmin();
-        await saveMetaAndRefresh();
-        showMessage("✅ Todos los datos guardados (incluye imágenes pesadas)");
-    });
+document.addEventListener("input",function(e){
+  if(e.target.matches("textarea[data-nota]")) sincronizar();
+});
 
-    document.getElementById("resetDataBtn").addEventListener("click", async () => {
-        if (confirm("⚠️ Restaurar datos de fábrica? Se perderán todas las imágenes personalizadas.")) {
-            await clearAllImages();
-            metaData = JSON.parse(JSON.stringify(DEFAULT_META));
-            localStorage.setItem("portfolio_meta", JSON.stringify(metaData));
-            await initDefaultImages();
-            await saveMetaAndRefresh();
-            showMessage("Datos restaurados a fábrica");
-        }
-    });
+document.getElementById("btnLimpiar").onclick=function(){
+  if(!confirm("Borrar todos los votos y las notas?")) return;
+  localStorage.removeItem(K_VOTO); localStorage.removeItem(K_NOTA);
+  document.querySelectorAll("textarea[data-nota]").forEach(function(t){t.value="";});
+  votos={}; notas={}; pintar();
+};
 
-    // Modal con autenticación
-    const modal = document.getElementById("adminModal");
-    const adminBtn = document.getElementById("adminBtn");
-    const closeBtn = document.getElementById("closeModal");
+document.getElementById("btnCopiar").onclick=function(){
+  var a=[],m=[];
+  document.querySelectorAll(".card").forEach(function(c){
+    var id=c.dataset.id, v=votos[id];
+    if(v==="aprobar") a.push(c.querySelector("h3").textContent);
+    else if(v==="mejorar") m.push(c.querySelector("h3").textContent+(notas[id]?(" — "+notas[id]):""));
+  });
+  var txt="VEREDICTO DEL PORTAFOLIO ("+a.length+" aprobados, "+m.length+" para mejorar)\n\n";
+  txt+="APROBAR ("+a.length+"):\n"+(a.length?(" - "+a.join("\n - ")):" (ninguno)")+"\n\n";
+  txt+="MEJORAR ("+m.length+"):\n"+(m.length?(" - "+m.join("\n - ")):" (ninguno)")+"\n";
+  var extra=[]; for(var k in notas){ if(notas[k]&&votos[k]!=="mejorar") extra.push(k+": "+notas[k]); }
+  if(extra.length) txt+="\nNOTAS SUELTAS:\n - "+extra.join("\n - ");
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){
+      document.getElementById("aviso").textContent="¡Veredicto copiado! Pegámelo en el chat.";
+    },function(){ window.prompt("Copiá esto y mandámelo:",txt); });
+  } else { window.prompt("Copiá esto y mandámelo:",txt); }
+};
 
-    adminBtn.onclick = async () => {
-        const pwd = prompt("🔒 Ingrese la contraseña de administrador:");
-        if (pwd === ADMIN_PASSWORD) {
-            await renderAdmin();
-            modal.style.display = "block";
-        } else if (pwd !== null) {
-            alert("Contraseña incorrecta. Acceso denegado.");
-        }
-    };
-    closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
-
-    function escapeHtml(str) {
-        if (!str) return "";
-        return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
-    }
-
-    // Inicialización completa
-    (async () => {
-        await openDB();
-        await initDefaultImages();
-        await renderPublic();
-        await updateHeroBg();
-    })();
+document.querySelectorAll("textarea[data-nota]").forEach(function(t){ t.value=notas[t.dataset.nota]||""; });
+pintar();
 </script>
 </body>
 </html>
